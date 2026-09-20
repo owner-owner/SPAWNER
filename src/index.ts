@@ -73,7 +73,7 @@ function startBot() {
   const bot = mineflayer.createBot({
     ...BOT_CONFIG,
     viewDistance: 'tiny',
-    physicsEnabled: false, // تم إيقاف الفيزياء لإلغاء الحركة والقفز نهائياً
+    physicsEnabled: true, // تم إيقاف الفيزياء لإلغاء الحركة والقفز نهائياً
     checkTimeoutInterval: 60 * 1000
   });
 
