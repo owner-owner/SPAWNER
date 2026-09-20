@@ -201,9 +201,15 @@ function startBot() {
   });
 
   bot.on('spawn', () => {
-    console.log('[Spawner-Bot] 🎉 البوت ريسبون وظهر داخل العالم (بدون قفز)!');
+    console.log('[Spawner-Bot] 🎉 البوت ريسبون وظهر داخل العالم!');
 
     clearAllIntervals();
+
+    // 🕒 الانتظار 7 ثوانٍ ثم كتابة أمر /smp
+    setTimeout(() => {
+      console.log('[Spawner-Bot] 🌐 إرسال الأمر /smp تلقائياً بعد 7 ثوانٍ...');
+      bot.chat('/smp');
+    }, 7000);
 
     // مؤقت 4 ساعات عمل ثم 1 ساعة استراحة
     workTimer = setTimeout(() => {
