@@ -23,10 +23,10 @@ const BOT_CONFIG = {
   host: 'zero7even.net',
   port: 25565,
   username: 'LZADGRE',
-  version: '1.20.5',
+  version: '1.21.4', // 👈 تم التحديث إلى الإصدار المطلوبة من السيرفر
 };
 
-const RECONNECT_DELAY_MS = 5000;
+const RECONNECT_DELAY_MS = 15000; // 👈 تم رفع المهلة إلى 15 ثانية لمنع طرد التكرار السريع
 const WORK_DURATION_MS = 4 * 60 * 60 * 1000; // 4 ساعات عمل داخل السيرفر
 const REST_DURATION_MS = 1 * 60 * 60 * 1000; // ساعة واحدة استراحة خارج السيرفر
 
@@ -57,7 +57,7 @@ function scheduleReconnect(reason: string) {
     return;
   }
 
-  console.log(`[Spawner-Bot] 🔄 إعادة الاتصال خلال 5 ثوانٍ بسبب: ${reason}`);
+  console.log(`[Spawner-Bot] 🔄 إعادة الاتصال خلال 15 ثانية بسبب: ${reason}`);
   if (reconnectTimeout) return;
 
   reconnectTimeout = setTimeout(() => {
@@ -73,7 +73,7 @@ function startBot() {
   const bot = mineflayer.createBot({
     ...BOT_CONFIG,
     viewDistance: 'tiny',
-    physicsEnabled: true, // تم إيقاف الفيزياء لإلغاء الحركة والقفز نهائياً
+    physicsEnabled: true,
     checkTimeoutInterval: 60 * 1000
   });
 
